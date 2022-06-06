@@ -9,14 +9,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
 import taekwon.springaop.order.OrderRepository;
 import taekwon.springaop.order.OrderService;
-import taekwon.springaop.order.aop.AspectV1;
-import taekwon.springaop.order.aop.AspectV3;
-import taekwon.springaop.order.aop.AspectV4Pointcut;
-import taekwon.springaop.order.aop.AspectV5Order;
+import taekwon.springaop.order.aop.*;
 
 @Slf4j
 @SpringBootTest
-@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
+//@Import({AspectV5Order.LogAspect.class, AspectV5Order.TxAspect.class})
+@Import({AspectV6Advice.class})
 public class AopTest {
 
     @Autowired
