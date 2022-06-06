@@ -11,10 +11,11 @@ import taekwon.springaop.order.OrderRepository;
 import taekwon.springaop.order.OrderService;
 import taekwon.springaop.order.aop.AspectV1;
 import taekwon.springaop.order.aop.AspectV3;
+import taekwon.springaop.order.aop.AspectV4Pointcut;
 
 @Slf4j
 @SpringBootTest
-@Import(AspectV3.class)
+@Import(AspectV4Pointcut.class)
 public class AopTest {
 
     @Autowired
