@@ -10,10 +10,11 @@ import org.springframework.context.annotation.Import;
 import taekwon.springaop.order.OrderRepository;
 import taekwon.springaop.order.OrderService;
 import taekwon.springaop.order.aop.AspectV1;
+import taekwon.springaop.order.aop.AspectV3;
 
 @Slf4j
 @SpringBootTest
-@Import(AspectV1.class)
+@Import(AspectV3.class)
 public class AopTest {
 
     @Autowired
