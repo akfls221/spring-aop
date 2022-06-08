@@ -1,4 +1,4 @@
-package taekwon.springaop.order.aop;
+package taekwon.springaop.aop.order;
 
 import org.aspectj.lang.annotation.Pointcut;
 

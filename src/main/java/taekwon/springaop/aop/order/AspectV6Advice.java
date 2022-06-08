@@ -1,4 +1,4 @@
-package taekwon.springaop.order.aop;
+package taekwon.springaop.aop.order;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.JoinPoint;
@@ -9,7 +9,7 @@ import org.aspectj.lang.annotation.*;
 @Aspect
 public class AspectV6Advice {
 
-    @Around("taekwon.springaop.order.aop.Pointcuts.orderAndService()")
+    @Around("taekwon.springaop.aop.order.Pointcuts.orderAndService()")
     public Object doTransaction(ProceedingJoinPoint joinPoint) throws Throwable{
 
         try {
@@ -31,23 +31,23 @@ public class AspectV6Advice {
 
 
     //joinPoint.proceed()를 작성하지 않아도 알아서 실행해줌.
-    @Before("taekwon.springaop.order.aop.Pointcuts.orderAndService()")
+    @Before("taekwon.springaop.aop.order.Pointcuts.orderAndService()")
     public void doVefor(JoinPoint joinPoint) {
         log.info("[before] {}", joinPoint.getSignature());
     }
 
     //return을 할 순 있지만, return을 바꿀 순 없다.
-    @AfterReturning(value = "taekwon.springaop.order.aop.Pointcuts.orderAndService()", returning = "result")
+    @AfterReturning(value = "taekwon.springaop.aop.order.Pointcuts.orderAndService()", returning = "result")
     public void doReturn(JoinPoint joinPoint, Object result) {
         log.info("[return] {} return={}", joinPoint.getSignature(), result);
     }
 
-    @AfterThrowing(value = "taekwon.springaop.order.aop.Pointcuts.orderAndService()", throwing = "ex")
+    @AfterThrowing(value = "taekwon.springaop.aop.order.Pointcuts.orderAndService()", throwing = "ex")
     public void doThrowing(JoinPoint joinPoint, Exception ex) {
         log.info("[ex] {} message={}", joinPoint.getSignature(), ex);
     }
 
-    @After(value = "taekwon.springaop.order.aop.Pointcuts.orderAndService()")
+    @After(value = "taekwon.springaop.aop.order.Pointcuts.orderAndService()")
     public void doAfter(JoinPoint joinPoint) {
         log.info("[after] {}", joinPoint.getSignature());
     }

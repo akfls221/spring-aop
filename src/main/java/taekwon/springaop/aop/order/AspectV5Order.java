@@ -1,4 +1,4 @@
-package taekwon.springaop.order.aop;
+package taekwon.springaop.aop.order;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -12,7 +12,7 @@ public class AspectV5Order {
     @Aspect
     @Order(2) //클래스 단위(@Aspect)로만 지정이 가능함.
     public static class LogAspect {
-        @Around("taekwon.springaop.order.aop.Pointcuts.allOrder()")
+        @Around("taekwon.springaop.aop.order.Pointcuts.allOrder()")
         public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable{
             log.info("[log] {}", joinPoint.getSignature()); // join point 시그니처
             return joinPoint.proceed();
@@ -22,7 +22,7 @@ public class AspectV5Order {
     @Aspect
     @Order(1) //클래스 단위(@Aspect)로만 지정이 가능함.
     public static class TxAspect {
-        @Around("taekwon.springaop.order.aop.Pointcuts.orderAndService()")
+        @Around("taekwon.springaop.aop.order.Pointcuts.orderAndService()")
         public Object doTransaction(ProceedingJoinPoint joinPoint) throws Throwable{
 
             try {

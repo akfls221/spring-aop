@@ -1,4 +1,4 @@
-package taekwon.springaop.order.aop;
+package taekwon.springaop.aop.order;
 
 import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -10,14 +10,14 @@ import org.aspectj.lang.annotation.Aspect;
 public class AspectV4Pointcut {
 
 
-    @Around("taekwon.springaop.order.aop.Pointcuts.allOrder()")
+    @Around("taekwon.springaop.aop.order.Pointcuts.allOrder()")
     public Object doLog(ProceedingJoinPoint joinPoint) throws Throwable{
         log.info("[log] {}", joinPoint.getSignature()); // join point 시그니처
         return joinPoint.proceed();
     }
 
     //hello.aop.order 패키지와 하위 패키지 이면서 클래스 이름 패턴이 *Service(여기선 OrderService)
-    @Around("taekwon.springaop.order.aop.Pointcuts.orderAndService()")
+    @Around("taekwon.springaop.aop.order.Pointcuts.orderAndService()")
     public Object doTransaction(ProceedingJoinPoint joinPoint) throws Throwable{
 
         try {
